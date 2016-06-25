@@ -201,145 +201,145 @@ int main() {
 	
 /* ******************************QUEUES***************************************  */
 //queue
-queue<int> q1;
-q1.push(1);
-q1.push(5);
-q1.push(8);
-cout<<"last element"<<q1.back()<<endl; //last element added in the queue
-cout<<"Queue elements: ";
-while(!q1.empty()) //return one if queue is empty
-{
-   cout<<q1.front()<<" ";   // oldes element (first)
-   q1.pop(); //remove last element 
-}
-cout<<"\n";
+	queue<int> q1;
+	q1.push(1);
+	q1.push(5);
+	q1.push(8);
+	cout<<"last element"<<q1.back()<<endl; //last element added in the queue
+	cout<<"Queue elements: ";
+	while(!q1.empty()) //return one if queue is empty
+	{
+		cout<<q1.front()<<" ";   // oldes element (first)
+	q1.pop(); //remove last element 
+	}
+	cout<<"\n";
 
 //deque
-deque<int> dq; 
-dq.push_back(20);
-dq.push_back(30);
-dq.push_back(40);
-dq.push_back(50);
-dq.push_front(10);
-cout<<"front = "<<dq.front() <<" back = "<<dq.back()<<endl; 
-dq.pop_front();
-dq.pop_back();
-cout<<"front = "<<dq.front() <<" back = "<<dq.back()<<endl;
+	deque<int> dq; 
+	dq.push_back(20);
+	dq.push_back(30);
+	dq.push_back(40);
+	dq.push_back(50);
+	dq.push_front(10);
+	cout<<"front = "<<dq.front() <<" back = "<<dq.back()<<endl; 
+	dq.pop_front();
+	dq.pop_back();
+	cout<<"front = "<<dq.front() <<" back = "<<dq.back()<<endl;
 
 //priority queue
-priority_queue<int> pq;
+	priority_queue<int> pq;
 // priority_queue<int, cmp> pq;   // pass cmp to sort them
-pq.push(20);
-pq.push(10);
-pq.push(30);
+	pq.push(20);
+	pq.push(10);
+	pq.push(30);
  
-cout<<"Priority Queue elements: ";
-while(!pq.empty())
-{
-     cout<<pq.top()<<" ";
-    pq.pop();
-}
-cout<<"\n";
+	cout<<"Priority Queue elements: ";
+	while(!pq.empty())
+	{
+		cout<<pq.top()<<" ";
+		pq.pop();
+	}
+	cout<<"\n";
 
 
 /* ******************************* STACK ******************************* */
-stack<int> s;
-s.push(20);
-s.push(10);
-s.push(30);
-cout<<"Stack elements: ";
-while(!s.empty())
-{
-    cout<<s.top()<<" ";
-     s.pop();
-}
-cout<<"\n";
+	stack<int> s;
+	s.push(20);
+	s.push(10);
+	s.push(30);
+	cout<<"Stack elements: ";
+	while(!s.empty())
+	{
+    		cout<<s.top()<<" ";
+     		s.pop();
+	}
+	cout<<"\n";
  
  
  /*  **************************** PAIR ************************************* */
-pair<int, char> p1 = make_pair(10, 'z');
-pair<string, pair<int, char> > p2 = make_pair("mostafa", p1);
-cout<<p2.first<<"\n";
-cout<<p2.second.first<<"\n";
-cout<<p2.second.second<<"\n";
+	pair<int, char> p1 = make_pair(10, 'z');
+	pair<string, pair<int, char> > p2 = make_pair("mostafa", p1);
+	cout<<p2.first<<"\n";
+	cout<<p2.second.first<<"\n";
+	cout<<p2.second.second<<"\n";
 
 //vector of pairs
-vector< pair<int, int> > vp;
-vp.push_back( make_pair(1, 2) );
-vp.push_back( make_pair(4, 4) );
-sort( all(vp), sortPairsCmp); // compare function , i can implement to fit my application
+	vector< pair<int, int> > vp;
+	vp.push_back( make_pair(1, 2) );
+	vp.push_back( make_pair(4, 4) );
+	sort( all(vp), sortPairsCmp); // compare function , i can implement to fit my application
 
 /* **************************SETS (log(n))************************************** */
 
-set<string> strSet;
-strSet.insert("mostafa");
-strSet.insert("ali");
- if(strSet.count("mostafa"))
-    cout<<"Mostafa is in Set\n";
+	set<string> strSet;
+	strSet.insert("mostafa");
+	strSet.insert("ali");
+ 	if(strSet.count("mostafa"))
+		cout<<"Mostafa is in Set\n";
  
-set<string>::iterator strIt = strSet.lower_bound("mostafa");
-strIt = strSet.find("mostafa"); // return NULL if not and points to it if it is there
-cout<<*strIt<<endl;
+	set<string>::iterator strIt = strSet.lower_bound("mostafa");
+	strIt = strSet.find("mostafa"); // return NULL if not and points to it if it is there
+	cout<<*strIt<<endl;
 
 /* ****************************** MAPS (log(n))************************************* */
-map<string, int> mp;
-mp["Mostafa"] = 10;
-mp["Saleh"] = 20;
+	map<string, int> mp;
+	mp["Mostafa"] = 10;
+	mp["Saleh"] = 20;
 // You could iterate on map and set normally like vector. Never to change keys while iterating
-vector< pair<string, int> > mptov( all(mp) ); //will convert map to vector of pairs
-for (i = 0; i < (int)mptov.size(); ++i)
-   cout<<mptov[i].first<<" "<<mptov[i].second<<"\n";
+	vector< pair<string, int> > mptov( all(mp) ); //will convert map to vector of pairs
+	for (i = 0; i < (int)mptov.size(); ++i)
+		cout<<mptov[i].first<<" "<<mptov[i].second<<"\n";
  
 /* *********************************** STRINGS *********************************** */
-string str1("Hello");
-string str2 = "World!";  //both are fine 
-cout<<str2.substr(2)<<endl;
-cout<<str2.substr(2,2)<<endl; //second parameter is the LENGTH of the substring not the index
-cout<<"Mostafa at: "<<(int)str1.find("Mostafa")<<"\n"; //CASTING IS IMPORTANT, return -1 if not in
-cout<<"Hello at: "<<(int)str1.find("Hello",0)<<"\n"; //second number is start index
-cout<<str1.find_last_of("Hwz")  <<"\n"; //search from of  one these character is first found
-cout<<str1.find_first_of("hwo", 1) <<"\n"; //from index 4
-cout<<str1.find_first_of("hoo", 4, 6) <<"\n"; //from index 4 to index 6
-cout<<str1.find_first_not_of("aic") <<"\n"; //first not found
+	string str1("Hello");
+	string str2 = "World!";  //both are fine 
+	cout<<str2.substr(2)<<endl;
+	cout<<str2.substr(2,2)<<endl; //second parameter is the LENGTH of the substring not the index
+	cout<<"Mostafa at: "<<(int)str1.find("Mostafa")<<"\n"; //CASTING IS IMPORTANT, return -1 if not in
+	cout<<"Hello at: "<<(int)str1.find("Hello",0)<<"\n"; //second number is start index
+	cout<<str1.find_last_of("Hwz")  <<"\n"; //search from of  one these character is first found
+	cout<<str1.find_first_of("hwo", 1) <<"\n"; //from index 4
+	cout<<str1.find_first_of("hoo", 4, 6) <<"\n"; //from index 4 to index 6
+	cout<<str1.find_first_not_of("aic") <<"\n"; //first not found
 
 // convert from string class to c string and it is inverse
-char array[4] = "hey";
-string t = array;
-const char* st = t.c_str();
+	char array[4] = "hey";
+	string t = array;
+	const char* st = t.c_str();
 //erase 
-str2.erase(3);//remove from index 4 to end
-str1.erase(1,2);//remove from 2 elements starting from index 1
-cout<<str2<<endl;
-cout<<str1<<endl;
+	str2.erase(3);//remove from index 4 to end
+	str1.erase(1,2);//remove from 2 elements starting from index 1
+	cout<<str2<<endl;
+	cout<<str1<<endl;
 
 /* ****************** STRING STREAM ************************ */
-vector<int> v7;
-v7.push_back(30);
-v7.push_back(10);
-v7.push_back(7);
-ostringstream oss;
-copy (all(v7), ostream_iterator<int>(oss, ","));   // convert vector to string
-cout<<oss.str()<<"\n";
-istringstream iss("10 20 30");  // helps much in reparsing input blocks
-int x;
-while(iss>>x) // same if cin stream
-cout<<"Readed X "<<x<<"\n";
+	vector<int> v7;
+	v7.push_back(30);
+	v7.push_back(10);
+	v7.push_back(7);
+	ostringstream oss;
+	copy (all(v7), ostream_iterator<int>(oss, ","));   // convert vector to string
+	cout<<oss.str()<<"\n";
+	istringstream iss("10 20 30");  // helps much in reparsing input blocks
+	int x;
+	while(iss>>x) // same if cin stream
+	cout<<"Readed X "<<x<<"\n";
 
 /* *****************************  Value array ******************************* */
-int a1[] = {1, -2, 3, -4, -5};
-valarray<int> va1 (a1, 5);    // NOT (val, val+5)
-valarray<int> va2 = abs (va1); //absoulte for all array (similar to matlab)
-cout<<va2.sum()<<"\n";
-valarray<int> va3 = 2 * (va1 + va2);
-printValArray(va3, "va3: ");
-valarray<bool> va4 = (va1 == va2);
-cout<<va4.min()<<" "<<va4.max()<<"\n";
-double arr[] = {0, 1, 2, 3};
-valarray<double> va5(arr, 4);
-valarray<double> va6 = 2.0 * (va5 + 3.0 * va5);  // 2.0 NOT 2 - same types used, not MIXED
-cout<<pow(2.0, va5).sum()<<"\n"; // 2^4 -1
-cout<<pow(va5, 2.0).sum()<<"\n";
-cout<<pow(2.5 * va5, va6).sum()<<"\n";
+	int a1[] = {1, -2, 3, -4, -5};
+	valarray<int> va1 (a1, 5);    // NOT (val, val+5)
+	valarray<int> va2 = abs (va1); //absoulte for all array (similar to matlab)
+	cout<<va2.sum()<<"\n";
+	valarray<int> va3 = 2 * (va1 + va2);
+	printValArray(va3, "va3: ");	
+	valarray<bool> va4 = (va1 == va2);
+	cout<<va4.min()<<" "<<va4.max()<<"\n";
+	double arr[] = {0, 1, 2, 3};
+	valarray<double> va5(arr, 4);
+	valarray<double> va6 = 2.0 * (va5 + 3.0 * va5);  // 2.0 NOT 2 - same types used, not MIXED
+	cout<<pow(2.0, va5).sum()<<"\n"; // 2^4 -1
+	cout<<pow(va5, 2.0).sum()<<"\n";
+	cout<<pow(2.5 * va5, va6).sum()<<"\n";
 
-return 0;
+	return 0;
 }	
